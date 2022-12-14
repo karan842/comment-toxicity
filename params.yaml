@@ -1,3 +1,12 @@
 base: 
   project: comment-toxicity-detection
   author: Karan Shingde
+  random_state: 42
+  
+data_source:
+  s3_source:
+    train_data: data/raw/train.csv
+    test_data: data/raw/test.csv
+
+processed_data:
+  cleaned_data: data/processed/cleaned_data.csv
