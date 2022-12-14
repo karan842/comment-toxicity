@@ -1,0 +1,18 @@
+schema: '2.0'
+stages:
+  load_data:
+    cmd: python src/load_data.py --config=params.yaml
+    deps:
+    - path: data/raw/train.csv
+      md5: 791e42335500c447273a7dc85f58239e
+      size: 68802655
+    - path: src/get_data.py
+      md5: 61a6f9e64175f0c9cd4875a6840d9d80
+      size: 894
+    - path: src/load_data.py
+      md5: 6bd42195c92f6df79fb23264aa7c37fa
+      size: 987
+    outs:
+    - path: data/processed/cleaned_data.csv
+      md5: 575ac46d2689562b619178dd869e3b30
+      size: 50295191
