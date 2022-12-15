@@ -9,7 +9,8 @@ data_source:
     test_data: data/raw/test.csv
 
 load_data:
-  processed_data: data/processed/processed_data.csv
+  processed_train_data: data/processed/processed_train_data.csv
+  processed_test_data: data/processed/processed_test_data.csv
 
 split_data:
   train_path: data/processed/cleaned_data.csv

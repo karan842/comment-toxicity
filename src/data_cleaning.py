@@ -29,7 +29,7 @@ def remove_duplicates(text_before):
     return " ".join(text_after)
 
 
-def clean_text(text):
+def denoise_text(text):
     """Make text lowercase, remove text in square brackets, remove links,remove punctuation
     and remove stop words containing numbers"""
     text = text.lower()                                            # Converts the text to lowercase using regex 
@@ -39,4 +39,35 @@ def clean_text(text):
     text = re.sub("[%s]" % re.escape(string.punctuation),"",text)  # Remove punctuations
     text = re.sub("\n","",text)                                    # Remove next line symbols '\n'
     text = re.sub("\w*\d\w*","",text)                              # Takes only albhabet and digits.
+    return text
+
+## STOPWORDS
+en_stop_words = stopwords.words('english')
+more_stopwords = ['u', 'im', 'c', 'cu']
+stop_words = en_stop_words + more_stopwords
+
+def remove_stopwords(text):
+    text = ' '.join(word for word in text.split(' ') if word not in stop_words)
+    return text
+
+# Stemming 
+'''
+    using snowballstemmer which is better than simple stemming 
+    we are not using lemmaization because here we are looking for 
+    a performance where time matters.  
+    In training we are using BERT to it can understand the sentiments behinf comment_text.
+'''
+stemmer = nltk.SnowballStemmer("english")
+
+def stemm_text(text):
+    text = ' '.join(stemmer.stem(word) for word in text.split(' '))
+    return text
+
+## Creating one parent function 
+
+def text_cleaning(text):
+    text = remove_duplicates(text)
+    text = denoise_text(text)
+    text = remove_stopwords(text)
+    text = stemm_text(text)
     return text

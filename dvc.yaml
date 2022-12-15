@@ -5,5 +5,7 @@ stages:
     - src/get_data.py
     - src/load_data.py
     - data/raw/train.csv
+    - data/raw/test.csv
    outs:
-    - data/processed/processed_data.csv
+    - data/processed/processed_train_data.csv
+    - data/processed/processed_test_data.csv
