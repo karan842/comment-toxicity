@@ -8,5 +8,10 @@ data_source:
     train_data: data/raw/train.csv
     test_data: data/raw/test.csv
 
-processed_data:
-  cleaned_data: data/processed/cleaned_data.csv
+load_data:
+  processed_data: data/processed/processed_data.csv
+
+split_data:
+  train_path: data/processed/cleaned_data.csv
+  test_path: data/processed/cleaned_data.csv
+  test_size: 0.2

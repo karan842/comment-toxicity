@@ -6,4 +6,4 @@ stages:
     - src/load_data.py
     - data/raw/train.csv
    outs:
-    - data/processed/cleaned_data.csv
+    - data/processed/processed_data.csv

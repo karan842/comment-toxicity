@@ -20,7 +20,7 @@ def load_data(config_path):
     # DATA PREPROCESSING/CLEANING
     df['comment_text'] = df['comment_text'].apply(lambda text: remove_duplicates(text))
     df['comment_text'] = df['comment_text'].apply(lambda text: clean_text(text))
-    processed_data_path = config["processed_data"]["cleaned_data"]
+    processed_data_path = config["load_data"]["processed_data"]
     df.to_csv(processed_data_path, index=False)   
 
 if __name__ == "__main__":
