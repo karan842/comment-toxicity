@@ -63,11 +63,20 @@ def stemm_text(text):
     text = ' '.join(stemmer.stem(word) for word in text.split(' '))
     return text
 
+'''
+    As we are using BERT for predictive analysis, 
+    no need to do stemming or lemmatization
+    
+    Bert uses BPE (Byte- Pair Encoding to shrink its vocab size), 
+    so words like run and running will ultimately be decoded to run + ##ing. 
+    So it's better not to convert running into run because, in some NLP problems, 
+    you need that information.
+'''
+
 ## Creating one parent function 
 
-def text_cleaning(text):
+def text_data_cleaning(text):
     text = remove_duplicates(text)
     text = denoise_text(text)
     text = remove_stopwords(text)
-    text = stemm_text(text)
     return text

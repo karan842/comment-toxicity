@@ -7,7 +7,7 @@ import re
 import string
 from itertools import groupby
 from get_data import read_params, get_train_data, get_test_data
-from data_cleaning import text_cleaning
+from data_cleaning import text_data_cleaning
 
 import nltk
 from nltk.corpus import stopwords
@@ -21,9 +21,9 @@ def load_data(config_path):
     # DATA PREPROCESSING/CLEANING
     try:
         print("\nCleaning the train data")
-        train_df['comment_text'] = train_df['comment_text'].apply(lambda text: text_cleaning(text))
+        train_df['comment_text'] = train_df['comment_text'].apply(lambda text: text_data_cleaning(text))
         print("\nCleaning the test data")
-        test_df['comment_text'] = test_df['comment_text'].apply(lambda text: text_cleaning(text))
+        test_df['comment_text'] = test_df['comment_text'].apply(lambda text: text_data_cleaning(text))
         print("\nData cleaning process completed! Loding the processed data.")
         processed_train_data_path = config["load_data"]["processed_train_data"]
         processed_test_data_path = config["load_data"]["processed_test_data"]
