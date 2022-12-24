@@ -1,8 +1,3 @@
-'''
-Author: Karan Shingde
-
-'''
-
 ## Importing libraries
 import pandas as pd
 import numpy as np
@@ -11,24 +6,49 @@ import re
 import tensorflow as tf
 import tensorflow_text as text
 import tensorflow_hub as hub
-from flask import Flask
+from src.predict import load_model
+from flask import Flask, request, jsonify
 
 ## Loading tf model
+model_path = 'saved_models/comment-toxicity-bert.h5'
+model = load_model(model_path)
 
-model_path = 'saved_models\comment-toxicity-bert.h5'
-
-load_model = tf.saved_model.LoadOptions(experimental_io_device='/job:localhost')
-
-model = tf.keras.models.load_model(model_path, 
-                                   custom_objects={hub:'KerasLayer'},
-                                   options=load_model)
-print("Model loaded Successfully!")
-
+## FLASK API
 app = Flask(__name__)
 
-@app.route('/admin')
-def hello_admin():
-    return 'Hello Admin'
+## Defining the classes
+classes = ['toxic', 'severe_toxic', 'obscene', 'threat', 'insult', 'identity_hate']
+
+# def classify(input_text, model, classes):
+#     trained_model = model.predict([input_text])
+#     output = np.where(trained_model > 0.5, 1, 0)
+#     for i,j in zip(classes, output[0]):
+#         if j==1:
+#             print(f"{i} :\t YES")
+#         if j==0:
+#             print(f"{i} :\t NO")
+            
+# print(classify('Fuck you', model, classes))
+        
+@app.route('/detect-comment',methods=["POST"])
+def index():
+    if request.method == 'POST':
+        try:
+            if request.json:
+                text = request.json['text']
+                print(text)
+                trained_model = model.predict([text])
+                output = np.where(trained_model > 0.5, 1, 0)
+                for i,j in zip(classes, output[0]):
+                    if j==1:
+                        print(f"{i} :\t YES")
+                        return jsonify({i: "YES"})
+                    if j==0:
+                        print(f"{i} :\t NO")
+                        return jsonify({i: "NO"})
+        except Exception as e:
+            print(e)
+            return {"error": "Something went wrong"}
 
 if __name__ == '__main__':
     app.run()
