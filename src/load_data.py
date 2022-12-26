@@ -21,9 +21,9 @@ def load_data(config_path):
     # DATA PREPROCESSING/CLEANING
     try:
         print("\nCleaning the train data")
-        train_df['comment_text'] = train_df['comment_text'].apply(lambda text: text_data_cleaning(text))
+        train_df['comment_text_clean'] = train_df['comment_text'].apply(lambda text: text_data_cleaning(text))
         print("\nCleaning the test data")
-        test_df['comment_text'] = test_df['comment_text'].apply(lambda text: text_data_cleaning(text))
+        test_df['comment_text_clean'] = test_df['comment_text'].apply(lambda text: text_data_cleaning(text))
         print("\nData cleaning process completed! Loding the processed data.")
         processed_train_data_path = config["load_data"]["processed_train_data"]
         processed_test_data_path = config["load_data"]["processed_test_data"]

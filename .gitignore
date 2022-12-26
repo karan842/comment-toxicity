@@ -6,8 +6,9 @@
 ## zip files
 *.zip
 
-### logs
+### logs and experiment
 logs/
+experiments/
 
 ## Virtual envs
 venv/
