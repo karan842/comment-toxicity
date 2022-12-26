@@ -13,12 +13,12 @@ stages:
       md5: 61a6f9e64175f0c9cd4875a6840d9d80
       size: 894
     - path: src/load_data.py
-      md5: f4bea981a4b2baaf266c83e1aa8f8ea2
-      size: 1545
+      md5: 158badab019097749646b25e1016c06e
+      size: 1557
     outs:
     - path: data/processed/processed_test_data.csv
-      md5: 682a111ccec14ebe898e1efa6b960a5e
-      size: 33141940
+      md5: 490165c230570b15075a580871d0034a
+      size: 90519336
     - path: data/processed/processed_train_data.csv
-      md5: 56f14c538940de89d57a65e40d8ea4d9
-      size: 39182423
+      md5: d1aaca72903f5c42509babad067e0b72
+      size: 102982773
