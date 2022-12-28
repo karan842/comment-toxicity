@@ -19,13 +19,13 @@ app = Flask(__name__)
 ## Definining a microservice to detect comment toxicity
 
 @app.route('/',methods=["GET", "POST"])
-def index():
+def home():
     if request.method == 'GET' or request.method == 'POST':
-        return "Welcome to the comment toxicity detection API. Route on `detect-comment` to detect toxicity in a comment. - Karan S."
+        return "Welcome to the comment toxicity detection API. \nRoute on `detect-comment` to detect toxicity in a comment. \n- Karan S."
 
         
-@app.route('/detect-comment',methods=["POST"])
-def index():
+@app.route('/detect-comment',methods=["GET","POST"])
+def predict():
     if request.method == 'POST':
         try:
             if request.json:
@@ -36,8 +36,9 @@ def index():
         except Exception as e:
             print(e)
             return {"error": e}
+        
     if request.method == 'GET':
-        return "Wrong method. Use POST :)"
+        return "Wrong method. Use POST"
 
 if __name__ == '__main__':
     app.run()
