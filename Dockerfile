@@ -1,5 +1,5 @@
 # syntax=docker/dockerfile:1
-FROM python-3.9-alpine
+FROM python:3.8
 EXPOSE 0806
 WORKDIR /comment-toxicity-detection-app
 COPY requirements.txt ./requirements.txt
