@@ -22,3 +22,5 @@ insights/
 .vscode/
 .github/
 *.lock
+test/
+Procfile

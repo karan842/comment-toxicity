@@ -24,7 +24,7 @@ def home():
         return "Welcome to the comment toxicity detection API. \nRoute on `detect-comment` to detect toxicity in a comment. \n- Karan S."
 
         
-@app.route('/detect-comment',methods=["GET","POST"])
+@app.route('/detect-toxicity',methods=["GET","POST"])
 def predict():
     if request.method == 'POST':
         try:
