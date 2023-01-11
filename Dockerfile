@@ -3,7 +3,7 @@ FROM pure/python:3.8-cuda10.2-cudnn7-runtime
 LABEL \
     maintainer="KARAN SHINGDE <karanshingde@gmail.com>" \
     version="1.0" \
-    description="An Ubuntu 18.04 Docker image with CUDA10 & Python 3.8" \
+    description="Docker image with CUDA10.2 & Python 3.8" \
     python-version="3.8.x" \
     cuda-version="10.2" \
     license="Apache License 2.0"
