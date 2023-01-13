@@ -21,10 +21,10 @@ app = Flask(__name__)
 @app.route('/',methods=["GET", "POST"])
 def home():
     if request.method == 'GET' or request.method == 'POST':
-        return "Welcome to the comment toxicity detection API. \nRoute on `detect-comment` to detect toxicity in a comment. \n- Karan S."
+        return "Welcome to the comment toxicity detection API. \nRoute on `detect-comment-toxicity` to detect toxicity in a comment. \n- Karan S."
 
         
-@app.route('/detect-toxicity',methods=["GET","POST"])
+@app.route('/detect-comment-toxicity',methods=["GET","POST"])
 def predict():
     if request.method == 'POST':
         try:
