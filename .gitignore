@@ -14,5 +14,5 @@ experiments/
 venv/
 env/
 
-## Credentials
+## Credentials file
 .env
