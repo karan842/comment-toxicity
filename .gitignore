@@ -13,3 +13,6 @@ experiments/
 ## Virtual envs
 venv/
 env/
+
+## Credentials
+.env
