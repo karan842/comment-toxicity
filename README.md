@@ -5,6 +5,21 @@ This is an end-to-end data science project, it is focuses on detecting toxicity 
 
 ## The Plan🤔
 
-1. **Business Goal/Problem Statement:** Sometimes internet becomes the worst place, some people are spreading hate and vulgar comments on user-engaged platforms suxh as Instagram, Twitter, Facebook, YouTube, Amazon, etc. To stop this shameful acts we have to restrict the comment section on internet platforms for this we need some AI algorithm which can detect toxicity. The main goal of us (as ML engineers) is to create an *Machine Learning System Design*.
+- **Business Goal/Problem Statement:** Sometimes internet becomes the worst place, some people are spreading hate and vulgar comments on user-engaged platforms suxh as Instagram, Twitter, Facebook, YouTube, Amazon, etc. To stop this shameful acts we have to restrict the comment section on internet platforms for this we need some AI algorithm which can detect toxicity. The main goal of us (as ML engineers) is to create an *Machine Learning System Design*.
 
-2. **Data**: I collected this data from **Kaggle Competition** which [Toxic Comment Classification Challange](https://www.kaggle.com/c/jigsaw-toxic-comment-classification-challenge). The data is in the form of *text* but stored in a `.csv`. It has multiple labels for each comment in the data. Those categories are `toxic, severe-toxic
+- **Data**: I collected this data from **Kaggle Competition** which [Toxic Comment Classification Challange](https://www.kaggle.com/c/jigsaw-toxic-comment-classification-challenge). The data is in the form of *text* but stored in a `.csv`. It has multiple labels for each comment in the data. Those categories are `toxic, severe_toxic, obscene, threat, insult, identity_hate`. **Caution**: The text contains high amount of nasty and crude comments.
+
+## Approach:
+- Created a Project structure by creating multiple directories and files to work on it.
+- Set a `Git/GitHub` for version control of code. Similarly set a `DVC` workflow for versioning the data.
+- In a *notebooks* folder you can find some notebooks where I explored the data using Python.
+- Cleaned the text data by applying various text analytics techniques such HTML parser, removing stopwords, etc.
+- In very first step I started performing feature engineering and EDA on the train data to gain a pattern of textual comments, frequent n-words, etc. 
+- Set a DVC pipeline for data cleaning which contains data loading, text cleaning and data saving in *data* folder.
+- To build an AI algorithm I trained the cleaned data on Kaggle GPU. For training I've used `BERT` pre-trained model with some required modification for input and outputs.
+- Trained the model using `Tensorflo and Keras` deep learning library and saved the model locally.
+- Next step is deployment, where I choosed `Flask` web framework to deploy this Machine Learning system into a microservice API.
+- To load the model I added some special code which gives stability to the GPU environment.
+- Served an algorithm in a URL of API. Tested the APIs using `Postman`.
+- I used `Docker Engine` for containerization of the GPU based Flask App.
+- I created a *.dockerfile* which can run GPU based Flask App in the container.
