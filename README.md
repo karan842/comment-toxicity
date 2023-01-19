@@ -91,7 +91,7 @@
 
 - **app.py**: An entry file for running ML-based API using Flask.
 
-- **dvc.lock*: File made by [DVC](https://dvc.org/).
+- **dvc.lock**: File made by [DVC](https://dvc.org/).
 
 - **dvc.yaml**: Parameters stored to run DVC workflow.
 
