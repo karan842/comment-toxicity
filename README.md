@@ -95,7 +95,7 @@
 
 - **dvc.yaml**: Parameters stored to run DVC workflow.
 
-- **mlflow_experiments.py**: To run (MLFlow)[https://mlflow.org/] experiments.
+- **mlflow_experiments.py**: To run [MLFlow](https://mlflow.org/) experiments.
 
 - **params.yaml**: Stored parameters which are useful in **src**.
 
