@@ -24,7 +24,9 @@
 
 - **Data**: I collected this data from **Kaggle Competition** which [Toxic Comment Classification Challange](https://www.kaggle.com/c/jigsaw-toxic-comment-classification-challenge). The data is in the form of *text* but stored in a `.csv`. It has multiple labels for each comment in the data. Those categories are `toxic, severe_toxic, obscene, threat, insult, identity_hate`. **Caution**: The text contains high amount of nasty and crude comments.
 
+
 ## [Approach](#approach)🕊️
+
 - Created a Project structure by creating multiple directories and files to work on it.
 - Set a `Git/GitHub` for version control of code. Similarly set a `DVC` workflow for data versioning.
 - In a *notebooks* folder you can find some notebooks where I explored the data using Python.
@@ -112,12 +114,12 @@
 7. Open **postman** and locate *body* tab, choose *json* and type comment in json format as shown in Snippets.
 
 ## [References](#references)📚
-- (ChatGPT)[https://chat.openai.com/chat]
-- (Docker Image)[https://hub.docker.com/r/nvidia/cuda]
-- (DVC)[https://dvc.org/doc/start]
-- (Tensorflow Hub)[https://www.tensorflow.org/hub]
-- (Azure CI/CD, Container Registry](https://www.youtube.com/watch?v=BmQqBxDg2Xg)
-- (O'Reilly Practical MLOps)[https://www.oreilly.com/library/view/practical-mlops/9781098103002/]
+- [ChatGPT](https://chat.openai.com/chat)
+- [Docker Image](https://hub.docker.com/r/nvidia/cuda)
+- [DVC](https://dvc.org/doc/start)
+- [Tensorflow Hub](https://www.tensorflow.org/hub)
+- [Azure CI/CD, Container Registry](https://www.youtube.com/watch?v=BmQqBxDg2Xg)
+- [O'Reilly Practical MLOps](https://www.oreilly.com/library/view/practical-mlops/9781098103002/)
 
 ## [Contact](#contact)📩
 [Gmail](karanshingde@gmail.com) | [LinkedIn](https://linkedin.com/in/karanshingde) | [Twitter](https://twitter.com/KuchBhiKaran)
