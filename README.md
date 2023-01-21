@@ -1,13 +1,14 @@
 <h1 align="center">COMMENT TOXICITY DETECTION⚠️💭❌</h1>
 
 > **Caution🔞**: The text contains high amount of nasty and crude comments.
+> **Warning⚠️**: I have Azure student subscription so because of limitations, I cannot keep the URL active. 
 
 # Project Guide📖
 
 * [About Project](#about-project)
 * [Snippets](#snippets)
 * [The Plan](#the-plan)
-* [Approach](#approach)
+* [Approach](#the-approach)
 * [Project Structure](#project-structure)
 * [Run by yourself](#run-by-yourself)
 * [References](#references)
@@ -27,7 +28,7 @@
 - **Data**: I collected this data from **Kaggle Competition** which [Toxic Comment Classification Challange](https://www.kaggle.com/c/jigsaw-toxic-comment-classification-challenge). The data is in the form of *text* but stored in a `.csv`. It has multiple labels for each comment in the data. Those categories are `toxic, severe_toxic, obscene, threat, insult, identity_hate`. **Caution**: The text contains high amount of nasty and crude comments.
 
 
-## [Approach](#approach)🕊️
+## [The Approach](#the-approach)🕊️
 
 - Created a Project structure by creating multiple directories and files to work on it.
 - Set a `Git/GitHub` for version control of code. Similarly set a `DVC` workflow for data versioning.
