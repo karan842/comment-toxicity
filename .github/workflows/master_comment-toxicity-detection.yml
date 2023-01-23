@@ -2,50 +2,59 @@
 # More GitHub Actions for Azure: https://github.com/Azure/actions
 
 name: Build and deploy container app to Azure Web App - comment-toxicity-detection
-
+ 
 on:
   push:
-    branches:
-      - master
-  workflow_dispatch:
+    branches: [ "master" ]
 
+permissions:
+  contents: read
+
+
+# Worflow jobs
 jobs:
   build:
-    runs-on: 'ubuntu-latest'
+   runs-on: ubuntu-latest
 
-    steps:
-    - uses: actions/checkout@v2
+   steps:
+    - uses: actions/checkout@v3
 
-    - name: Set up Docker Buildx
-      uses: docker/setup-buildx-action@v1
-
-    - name: Log in to registry
-      uses: docker/login-action@v1
+    - name: Set up Python 3.8
+      uses: actions/setup-python@v3
       with:
-        registry: https://commenttoxicityapi.azurecr.io/
-        username: ${{ secrets.AzureAppService_ContainerUsername_e5c23f7e32ee4e638cd07577554a9e29 }}
-        password: ${{ secrets.AzureAppService_ContainerPassword_43e239ec7c9a4950831a02dd6d9960fd }}
+        python-version: 3.8
 
-    - name: Build and push container image to registry
-      uses: docker/build-push-action@v2
-      with:
-        push: true
-        tags: commenttoxicityapi.azurecr.io/${{ secrets.AzureAppService_ContainerUsername_e5c23f7e32ee4e638cd07577554a9e29 }}/toxicity-api:${{ github.sha }}
-        file: ./Dockerfile
 
-  deploy:
-    runs-on: ubuntu-latest
-    needs: build
-    environment:
-      name: 'production'
-      url: ${{ steps.deploy-to-webapp.outputs.webapp-url }}
+  #   - name: Set up Docker Buildx
+  #     uses: docker/setup-buildx-action@v1
 
-    steps:
-    - name: Deploy to Azure Web App
-      id: deploy-to-webapp
-      uses: azure/webapps-deploy@v2
-      with:
-        app-name: 'comment-toxicity-detection'
-        slot-name: 'production'
-        publish-profile: ${{ secrets.AzureAppService_PublishProfile_402993d613694c0e82f9ddc6aa4729eb }}
-        images: 'commenttoxicityapi.azurecr.io/${{ secrets.AzureAppService_ContainerUsername_e5c23f7e32ee4e638cd07577554a9e29 }}/toxicity-api:${{ github.sha }}'
+  #   - name: Log in to registry
+  #     uses: docker/login-action@v1
+  #     with:
+  #       registry: https://commenttoxicityapi.azurecr.io/
+  #       username: ${{ secrets.AzureAppService_ContainerUsername_e5c23f7e32ee4e638cd07577554a9e29 }}
+  #       password: ${{ secrets.AzureAppService_ContainerPassword_43e239ec7c9a4950831a02dd6d9960fd }}
+
+  #   - name: Build and push container image to registry
+  #     uses: docker/build-push-action@v2
+  #     with:
+  #       push: true
+  #       tags: commenttoxicityapi.azurecr.io/${{ secrets.AzureAppService_ContainerUsername_e5c23f7e32ee4e638cd07577554a9e29 }}/toxicity-api:${{ github.sha }}
+  #       file: ./Dockerfile
+
+  # deploy:
+  #   runs-on: ubuntu-latest
+  #   needs: build
+  #   environment:
+  #     name: 'production'
+  #     url: ${{ steps.deploy-to-webapp.outputs.webapp-url }}
+
+  #   steps:
+  #   - name: Deploy to Azure Web App
+  #     id: deploy-to-webapp
+  #     uses: azure/webapps-deploy@v2
+  #     with:
+  #       app-name: 'comment-toxicity-detection'
+  #       slot-name: 'production'
+  #       publish-profile: ${{ secrets.AzureAppService_PublishProfile_402993d613694c0e82f9ddc6aa4729eb }}
+  #       images: 'commenttoxicityapi.azurecr.io/${{ secrets.AzureAppService_ContainerUsername_e5c23f7e32ee4e638cd07577554a9e29 }}/toxicity-api:${{ github.sha }}'
